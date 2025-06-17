@@ -11,7 +11,13 @@ appendRow.addEventListener('click', function (e) {
 
   tbody.append(tr);
 
-  const count = tr.previousElementSibling.children.length;
+  let count;
+
+  if (tr.previousElementSibling.children) {
+    count = tr.previousElementSibling.children.length;
+  } else {
+    count = 2;
+  }
 
   for (let i = 0; i < count; i++) {
     tr.append(document.createElement('td'));
@@ -71,5 +77,3 @@ removeColumn.addEventListener('click', function (e) {
     removeColumn.disabled = true;
   }
 });
-
-
