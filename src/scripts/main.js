@@ -8,16 +8,15 @@ const tbody = document.querySelector('tbody');
 
 appendRow.addEventListener('click', function (e) {
   const tr = document.createElement('tr');
-
-  tbody.append(tr);
-
   let count;
 
-  if (tr.previousElementSibling.children) {
-    count = tr.previousElementSibling.children.length;
+  if (tbody.children >= 1) {
+    count = tr.firstChild.children.length;
   } else {
     count = 2;
   }
+
+  tbody.append(tr);
 
   for (let i = 0; i < count; i++) {
     tr.append(document.createElement('td'));
